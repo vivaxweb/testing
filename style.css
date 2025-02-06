@@ -1,0 +1,152 @@
+body {
+    margin: 20px;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+  
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
+    justify-content: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.header-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    color: #333;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 45px;
+    }
+
+    .header-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 40px;
+    }
+
+    .header-text {
+        font-size: 18px;
+    }
+
+    .header {
+        padding: 10px 15px;
+    }
+}
+
+  
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+      background-color: #85656b; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+  }
+  
+  .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+  }
+  
+  .illustration {
+      width: 80%;
+      max-width: 200px;
+      margin-bottom: 15px;
+  }
+  
+  input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+      border: none;
+      background-color: #222;
+      color: white;
+      font-size: 16px;
+      margin-bottom: 15px;
+  }
+  
+  input::placeholder {
+      color: #bbb;
+  }
+  
+  .btn {
+      width: 48%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff4d6d;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+      background-color: #e63950;
+  }
+  
+  #result {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #333;
+  }
+  
+  footer {
+      position: absolute;
+      bottom: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: white;
+  }
+           
+  

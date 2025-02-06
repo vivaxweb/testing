@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Scanner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.0.2/tesseract.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+        video, canvas {
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid black;
+        }
+        button {
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #status {
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>ID Scanner</h2>
+    <video id="video" autoplay></video>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <br>
+    <button id="capture">Scan ID</button>
+    <p id="status">Waiting for scan...</p>
+
+    <script>
+        const video = document.getElementById("video");
+        const canvas = document.getElementById("canvas");
+        const captureButton = document.getElementById("capture");
+        const statusText = document.getElementById("status");
+
+        // Start Camera
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Camera access denied:", err);
+                statusText.textContent = "Error: Camera not accessible!";
+            });
+
+        // Capture Image and Process OCR
+        captureButton.addEventListener("click", () => {
+            const context = canvas.getContext("2d");
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            statusText.textContent = "Processing OCR...";
+            
+            Tesseract.recognize(
+                canvas, 
+                "eng",
+                { logger: m => console.log(m) } // Optional logging
+            ).then(({ data: { text } }) => {
+                const idNumber = text.match(/\d+/g)?.[0] || "Not Found";
+                statusText.textContent = "Extracted ID: " + idNumber;
+
+                // Redirect to form page with ID number
+                window.location.href = `form.html?id=${idNumber}`;
+            });
+        });
+    </script>
+
+</body>
+</html>
