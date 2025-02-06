@@ -42,10 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
     if (id) {
-        document.getElementById("idNumber").value = id;
+        document.getElementById("searchInput").value = id;
     }
 
     function submitForm() {
-        alert("Form submitted with ID: " + document.getElementById("idNumber").value);
+        alert("Form submitted with ID: " + document.getElementById("searchInput").value);
     }
 });
