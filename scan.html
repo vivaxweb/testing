@@ -69,11 +69,11 @@
                 "eng",
                 { logger: m => console.log(m) } // Optional logging
             ).then(({ data: { text } }) => {
-                const idNumber = text.match(/\d+/g)?.[0] || "Not Found";
-                statusText.textContent = "Extracted ID: " + idNumber;
+                const searchInput = text.match(/\d+/g)?.[0] || "Not Found";
+                statusText.textContent = "Extracted ID: " + searchInput;
 
                 // Redirect to form page with ID number
-                window.location.href = `index.html?id=${idNumber}`;
+                window.location.href = `index.html?id=${searchInput}`;
             });
         });
     </script>
