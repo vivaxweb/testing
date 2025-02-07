@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Number Scanner</title>
+    <script src="https://unpkg.com/tesseract.js@4.0.2"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #video {
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+        }
+        #canvas, #captured-image {
+            display: none;
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Capture ID Card & Extract ID Number</h2>
+    
+    <video id="video" autoplay></video>
+    <br>
+    <button id="capture-btn">Capture Photo</button>
+    <br><br>
+    
+    <canvas id="canvas"></canvas>
+    <img id="captured-image" alt="Captured Photo">
+    <br>
+    
+    <button id="extract-btn" style="display: none;">Extract ID Number</button>
+    <p><strong>Extracted ID Number:</strong> <span id="result"></span></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
