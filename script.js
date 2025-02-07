@@ -49,3 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Form submitted with ID: " + document.getElementById("idNumber").value);
     }
 });
+
+
+// vivax
+
+    // Check if scanned ID exists in localStorage
+    window.onload = function () {
+        let scannedID = localStorage.getItem("scannedID");
+        if (scannedID) {
+            document.getElementById("id-input").value = scannedID;
+            localStorage.removeItem("scannedID"); // Clear after using
+        }
+    };
